@@ -4,6 +4,7 @@ import mysql.connector
 import os
 
 from insert_orders import insert_orders
+from insert_expenses import insert_expense
 
 load_dotenv()
 
@@ -23,10 +24,12 @@ main_window.resizable(width=False, height=False)
 label_welcome = Label(main_window, text="Bem Vindo(a)", width=10, font=("Arial", 12, "bold"))
 label_welcome.place(x=90, y=20)
 
-insert_order_btn = Button(main_window, text="Inserir Encomenda", command=lambda: insert_orders(cursor, bd_connection), width=16, bg="green", fg="white")
+insert_order_btn = Button(main_window, text="Inserir Encomenda", command=lambda: insert_orders(cursor,
+                         bd_connection), width=16, bg="green", fg="white")
 insert_order_btn.place(x=40, y=90)
 
-insert_expense_btn = Button(main_window, text="Inserir Despesa", width=12, bg="green", fg="white")
+insert_expense_btn = Button(main_window, text="Inserir Despesa", command=lambda: insert_expense(cursor,
+                            bd_connection), width=12, bg="green", fg="white")
 insert_expense_btn.place(x=170, y=90)
 
 view_information_btn = Button(main_window, text="Visualizar Informações", width=18, bg="green", fg="white")
