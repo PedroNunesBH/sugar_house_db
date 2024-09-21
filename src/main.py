@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 import mysql.connector
 import os
 
-from insert_orders import insert_orders
-from insert_expenses import insert_expense
-from show_db_infos import show_financial_info
+from database.insert_orders import insert_orders
+from database.insert_expenses import insert_expense
+from database.show_db_infos import show_financial_info
 
 load_dotenv()
 
