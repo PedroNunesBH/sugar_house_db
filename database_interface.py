@@ -5,6 +5,7 @@ import os
 
 from insert_orders import insert_orders
 from insert_expenses import insert_expense
+from show_db_infos import show_financial_info
 
 load_dotenv()
 
@@ -32,7 +33,8 @@ insert_expense_btn = Button(main_window, text="Inserir Despesa", command=lambda:
                             bd_connection), width=12, bg="green", fg="white")
 insert_expense_btn.place(x=170, y=90)
 
-view_information_btn = Button(main_window, text="Visualizar Informações", width=18, bg="green", fg="white")
+view_information_btn = Button(main_window, text="Visualizar Informações", command=lambda: 
+                              show_financial_info(cursor), width=18, bg="green", fg="white")
 view_information_btn.place(x=90, y=140)
 
 main_window.mainloop()
