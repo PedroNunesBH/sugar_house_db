@@ -7,13 +7,11 @@
 
 
 
-O projeto Sugar House Database App foi desenvolvido para a atividade do Laboratório de Extensão da faculdade Estácio, curso de Análise e Desenvolvimento de Sistemas na disciplina Banco de Dados.
+O projeto **Sugar House Database App** foi desenvolvido para a atividade do Laboratório de Extensão da faculdade Estácio, no curso de Análise e Desenvolvimento de Sistemas, na disciplina Banco de Dados.
 
-A atividade tem como objetivo desenvolver as habilidades estudadas ao longo do semestre na matéria aplicando-as em um cenário real e de forma conjunta criando envolvimento com a comunidade local através de um projeto social. 
+A atividade tem como objetivo desenvolver as habilidades estudadas ao longo do semestre, aplicando-as em um cenário real e de forma conjunta, criando envolvimento com a comunidade local através de um projeto social. Para o desenvolvimento desta atividade, foi estabelecida uma parceria com a confeitaria local **Sugar House**, localizada em Belo Horizonte, Minas Gerais, cuja proprietária é uma microempreendedora individual.
 
-Para o desenvolvimento dessa atividade foi estabelecida uma parceria com uma confeitaria local chamada Sugar House, localizada em Belo Horizonte, Minas Gerais cujo a proprietária é uma microempreendedora individual.
-
-A aplicação consiste no desenvolvimento de um banco de dados em MySQL para facilitar o registro de despesas e encomendas da confeitaria.Para que a proprietária consiga fazer os registros sem o conhecimento técnico de SQL foi criada uma interface gráfica utilizando Python.
+A aplicação consiste no desenvolvimento de um banco de dados em MySQL para facilitar o registro de despesas e encomendas da confeitaria. Para que a proprietária consiga fazer os registros sem o conhecimento técnico de SQL, foi criada uma interface gráfica utilizando Python.
 
 ## Índice
 - [Índice](#índice)
@@ -26,7 +24,6 @@ A aplicação consiste no desenvolvimento de um banco de dados em MySQL para fac
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Estrutura de Diretórios](#estrutura-de-diretórios)
 - [Padrões Utilizados](#padrões-utilizados)
-- [Metodologia de Desenvolvimento](#metodologia-de-desenvolvimento)
 - [Desenvolvedor](#desenvolvedor)
 - [Licença](#licença)
 
@@ -36,9 +33,9 @@ Finalizado ✅
 
 ## Layout
 
-**Index**
+<img src="./docs/images/interface_1.png" alt="Imagem 1" width="300"/> <img src="./docs/images/interface_2.png" alt="Imagem 2" width="300"/>
 
-
+<img src="./docs/images/interface_3_despesa.png" alt="Imagem 3" width="300"/> <img src="./docs/images/interface_4.png" alt="Imagem 4" width="300"/>
 
 ## Funcionalidades
 1. **Visualização dos Registros**: Permite verificar todos os registros das tabelas SQL.
@@ -46,7 +43,6 @@ Finalizado ✅
 3. **Edição de Registros**: Edição dos registros.
 4. **Exclusão dos Registros**: Permite excluir registros.
 
-## Variáveis De Ambiente
 
 ## Banco de Dados
 
@@ -55,10 +51,25 @@ Para a criação do banco de dados, foi utilizado o **MySQL Workbench** na vers�
 A estrutura do banco de dados inclui as seguintes tabelas:
 
 1. **encomendas**: armazena informações sobre as encomendas realizadas.  
-   Para verificar a estrutura da tabela `encomendas`, acesse o diretório `sql` e visualize o arquivo `create_table_encomendas.sql`.
+   Para verificar a estrutura da tabela `encomendas`, acesse o diretório `sql` dentro de `docs` e visualize o arquivo `create_table_encomendas.sql`.
 
 2. **despesas**: armazena informações sobre as despesas.  
-   Para verificar a estrutura da tabela `despesas`, acesse o diretório `sql` e visualize o arquivo `create_table_despesas.sql`.
+   Para verificar a estrutura da tabela `despesas`, acesse o diretório `sql` dentro de `docs` e visualize o arquivo `create_table_despesas.sql`.
+
+## Variáveis De Ambiente
+
+Este projeto utiliza variáveis de ambiente para configurar a conexão entre a interface gráfica em Python e o banco de dados MySQL. Para utilizar o projeto em sua máquina, após criar o banco de dados seguindo os scripts e a seção [Banco de Dados](#banco-de-dados), siga os seguintes passos:
+
+1. Crie um arquivo chamado `.env` no diretório raiz do projeto.
+2. Dentro do arquivo `.env`, defina as seguintes variáveis com seus respectivos valores:
+
+| Variável  | Descrição                               | Exemplo        |
+|-----------|-----------------------------------------|----------------|
+| `HOST`    | Endereço do servidor MySQL              | `localhost`    |
+| `USER`    | Nome de usuário do MySQL                | `root`         |
+| `PASSWORD`| Senha do usuário do MySQL               | `minhasenha`   |
+| `DATABASE`| Nome do banco de dados a ser utilizado  | `sugar_house`  |
+
     
 ## Como Rodar A Aplicação
 
@@ -92,29 +103,34 @@ A estrutura do banco de dados inclui as seguintes tabelas:
 
     projeto/
     │
-    ├── sql/
-    │   ├── create_table_encomendas.sql     # Script para criar a tabela de encomendas.
-    │   └── create_table_despesas.sql       # Script para criar a tabela de despesas.
+    ├── docs/
+    │   ├── sql/
+    │   │   ├── create_table_encomendas.sql     # Script para criar a tabela de encomendas.
+    │   │   └── create_table_despesas.sql       # Script para criar a tabela de despesas.
+    │   │
+    │   └── images/                             # Pasta para armazenar imagens da documentação.
+    │       ├── interface_1.png
+    │       ├── interface_2.png
+    │       ├── interface_3_despesa.png
+    │       └── interface_4.png
     │
     ├── src/
     │   ├── database/
-    │   │   ├── display_records.py           # Script para exibir registros do banco de dados.
-    │   │   ├── edit_record_window.py        # Script para a interface de edição de registros.
-    │   │   ├── insert_expenses.py           # Script para inserir despesas no banco de dados.
-    │   │   ├── insert_orders.py             # Script para inserir encomendas no banco de dados.
-    │   │   ├── show_db_infos.py             # Script para mostrar informações do banco de dados.
-    │   │   └── show_records.py              # Script para mostrar registros armazenados.
+    │   │   ├── display_records.py              # Script para exibir registros do banco de dados.
+    │   │   ├── edit_record_window.py           # Script para a interface de edição de registros.
+    │   │   ├── insert_expenses.py              # Script para inserir despesas no banco de dados.
+    │   │   ├── insert_orders.py                # Script para inserir encomendas no banco de dados.
+    │   │   ├── show_db_infos.py                # Script para mostrar informações do banco de dados.
+    │   │   └── show_records.py                 # Script para mostrar registros armazenados.
     │   │
-    │   └── main.py                          # Ponto de entrada principal da aplicação.
+    │   └── main.py                             # Ponto de entrada principal da aplicação.
     │
-    ├── requirements.txt                      # Arquivo com as dependências do projeto.
-    └── .gitignore                            # Arquivo que especifica quais arquivos/diretórios o Git deve ignorar.
+    ├── requirements.txt                        # Arquivo com as dependências do projeto.
+    └── .gitignore                              # Arquivo que especifica quais arquivos/diretórios o Git deve ignorar.
+
     
 ## Padrões Utilizados
 1. **Commits Semânticos**: Os commits do projeto seguem o padrão de commits semânticos facilitando o entendimento e a padronização.
-
-## Metodologia de Desenvolvimento
-
 
 ## Desenvolvedor
 - [Pedro Henrique Silveira Nunes](https://github.com/PedroNunesBH)
