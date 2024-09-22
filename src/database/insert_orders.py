@@ -11,13 +11,19 @@ def insert_orders(cursor, bd_connection):
         delivery_type = entries[6].get()
 
         insert_query = """INSERT INTO encomendas (s_nomedocliente, i_quantidade, s_nomedoproduto, 
-                            f_valordoproduto, s_promocao, s_formadepagamento, s_tipodeentrega)
-                            VALUES (%s, %s, %s, %s, %s, %s, %s)"""
-        values = (client_name, quantity, product_name, product_value, promotion,  payment_method, delivery_type)
-            
-        cursor.execute(insert_query, values)
-        bd_connection.commit()  
-        print("Registro inserido com sucesso")
+                          f_valordoproduto, s_promocao, s_formadepagamento, s_tipodeentrega)
+                          VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+        values = (client_name, quantity, product_name, product_value, promotion, payment_method, delivery_type)
+        
+        try:
+            cursor.execute(insert_query, values)
+            bd_connection.commit()
+            result_label.config(text="Registro inserido com sucesso", fg="green")
+            # Limpar os campos após o sucesso
+            for entry in entries:
+                entry.delete(0, END)
+        except Exception as e:
+            result_label.config(text=f"Erro ao inserir: {str(e)}", fg="red")
 
     order_window = Toplevel()
     order_window.title("Inserir Registro de Encomenda")
@@ -39,6 +45,9 @@ def insert_orders(cursor, bd_connection):
         entry.place(x=180, y=60 + i * 30, width=200)
         entries.append(entry)
 
-    button_save = Button(order_window, text="Salvar Encomenda", command=insert_to_bd)
+    button_save = Button(order_window, text="Salvar Encomenda", command=insert_to_bd, bg="green", fg="white")
     button_save.place(x=150, y=300)
 
+    # Label para mostrar o resultado da inserção
+    result_label = Label(order_window, text="", font=("Arial", 10))
+    result_label.place(x=20, y=350)
