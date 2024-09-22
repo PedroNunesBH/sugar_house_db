@@ -43,6 +43,3 @@ env.bak/
 
 # Jupyter Notebook
 .ipynb_checkpoints
-
-# MySQL files
-*.sql
