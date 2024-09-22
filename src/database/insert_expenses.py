@@ -20,11 +20,11 @@ def insert_expense(cursor, bd_connection):
             result_label.config(text=f"Erro ao inserir: {str(e)}", fg="red")
 
     expense_window = Toplevel()
-    expense_window.title("Insira um registro")
+    expense_window.title("Insira um registro de Despesa")
     expense_window.geometry("450x300")
     expense_window.resizable(width=False, height=False)
 
-    label_title = Label(expense_window, text="Insira um registro de despesa", width=30, font=("Arial", 12, "bold"))
+    label_title = Label(expense_window, text="Insira um registro", width=30, font=("Arial", 12, "bold"))
     label_title.place(x=50, y=20)
 
     labels = ["Descrição:", "Valor:", "Forma de Pagamento:"]
